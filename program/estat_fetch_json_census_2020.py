@@ -30,7 +30,7 @@ ENDPOINT = (
     "explanationGetFlg=Y&annotationGetFlg=Y&sectionHeaderFlg=1&"
     "replaceSpChars=0"
 )
-OUTPUT_FILE = "./data/statsData_0003433219.json"
+OUTPUT_FILE = "../data/statsData_0003433219.json"
 
 
 def build_url() -> str:

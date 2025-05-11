@@ -14,8 +14,8 @@ from pathlib import Path
 from typing import List, Dict, Any, Optional
 
 # ファイルパス（必要に応じて変更）
-JSON_FILE = Path("./data/statsData_0003433219.json")
-CSV_FILE = Path("./data/municipality_population_2020.csv")
+JSON_FILE = Path("../data/statsData_0003433219.json")
+CSV_FILE = Path("../data/municipality_population_2020.csv")
 
 
 def load_json(path: Path) -> Dict[str, Any]:

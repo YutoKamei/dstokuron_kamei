@@ -21,7 +21,7 @@ import unicodedata as ud
 import re
 import pandas as pd
 
-DIR = Path("./data")
+DIR = Path("../data")
 CSV_POP = DIR / "municipality_population_2020.csv"
 CSV_CVS = DIR / "convenience_by_municipality.csv"
 CSV_OUT = DIR / "muni_pop_conv.csv"

@@ -25,7 +25,7 @@ BASE_URL   = "https://www.apamanshop.com/townpage/ranking/town-convenience/{}/"
 START_PAGE = 1          # 1 〜 95 で固定
 END_PAGE   = 95
 SLEEP_SEC  = 1.0        # サーバ負荷軽減用ウエイト
-OUT_CSV    = Path("./data/convenience_by_municipality.csv")
+OUT_CSV    = Path("../data/convenience_by_municipality.csv")
 HEADERS    = {
     # 普通のブラウザっぽい UA を入れておく
     "User-Agent": (

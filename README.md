@@ -21,11 +21,15 @@
 │  ├─ municipality_population_2020.csv    # 市区町村別人口（CSV）
 │  ├─ convenience_by_municipality.csv     # コンビニ件数（CSV）
 │  └─ muni_pop_conv.csv                   # ★最終成果物
+├─ program/                # Pythonコード置き場
+|  ├─ estat_fetch_json_census_2020.py        # (1) 国勢調査 JSON 取得
+|  ├─ estat_population_muni2020.py           # (2) 人口 CSV 生成
+|  ├─ scrape_apamanshop_convenience.py       # (3) コンビニ件数 CSV 生成
+|  └─ merge_muni_population_convenience.py   # (4) マージ＆欠損出力
+├─ .gitignore
+├─ requirements.txt
 ├─ .env                                   # e‑Stat APP_ID を格納（後述）
-├─ estat_fetch_json_census_2020.py        # (1) 国勢調査 JSON 取得
-├─ estat_population_muni2020.py           # (2) 人口 CSV 生成
-├─ scrape_apamanshop_convenience.py       # (3) コンビニ件数 CSV 生成
-└─ merge_muni_population_convenience.py   # (4) マージ＆欠損出力
+└─ README.md
 ```
 
 ---
