@@ -1,0 +1,7 @@
+pandas
+numpy
+requests
+beautifulsoup4
+lxml                  # BeautifulSoup を "lxml" パーサで使うため
+tqdm
+python-dotenv         # .env から APP_ID を読み込むスクリプトで使用
