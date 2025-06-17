@@ -98,19 +98,19 @@
 
      * 列: `area_code, area_name, population, conv_store`
 
-### 5. 人口からコンビニ店舗数を予測（回帰分析）
+5. ### 人口からコンビニ店舗数を予測（回帰分析）
 
-```bash
-python program/linear-regression_analysis.py
-```
+   ```bash
+   python program/linear-regression_analysis.py
+   ```
 
-* 読み込みファイル  
-  * `data/muni_pop_conv.csv`  
-* 出力ファイル  
-  * `data/log/linear-regression_analysis_log.txt` … 実行ログ（回帰式・決定係数など）  
-  * `data/pictures/regression_analysis_final.png` … 散布図＋回帰直線  
+   * 読み込みファイル  
+     * `data/muni_pop_conv.csv`  
+   * 出力ファイル  
+     * `data/log/linear-regression_analysis_log.txt` … 実行ログ（回帰式・決定係数など）  
+     * `data/pictures/regression_analysis_final.png` … 散布図＋回帰直線  
 
-> デフォルトでは人口ゼロの自治体と欠損値は除外します。
+   > デフォルトでは人口ゼロの自治体と欠損値は除外します。
 
 ---
 
