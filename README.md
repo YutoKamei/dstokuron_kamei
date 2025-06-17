@@ -1,12 +1,10 @@
-# 市区町村別 **人口 × コンビニ件数** データ作成手順
+# 市区町村別 **人口 × コンビニ件数** データ分析
 
-このリポジトリでは以下の 3 種類のデータソースを組み合わせ、
+このリポジトリでは、以下 3 種類のデータソースを突合し、`muni_pop_conv.csv`（人口とコンビニ件数一覧）を生成したうえで、**単回帰分析**により、人口とコンビニ店舗数の関係を検証します。
 
-* **e‑Stat 国勢調査 2020（速報値）** … 市区町村別総人口
+* **e-Stat 国勢調査 2020（速報値）** … 市区町村別総人口
 * **アパマンショップ** … 市区町村別コンビニ店舗数ランキング
 * （作業用）中間 CSV／JSON ファイル
-
-から最終成果物 `muni_pop_conv.csv`（人口とコンビニ件数の突合一覧）を生成します。
 
 > 対象市区町村：全国 1,965 自治体（都道府県・政令市区を含む）
 
@@ -17,6 +15,10 @@
 ```
 .
 ├─ data/                # 生成物・中間ファイル置き場
+│  ├─ log/
+│  │  └─ linear-regression_analysis_log.txt  # 回帰分析プログラム実行時のログ
+│  ├─ pictures/
+│  │  └─ regression_analysis_final.png    # 回帰分析の結果グラフ
 │  ├─ statsData_0003433219.json           # e‑Stat API 生データ
 │  ├─ municipality_population_2020.csv    # 市区町村別人口（CSV）
 │  ├─ convenience_by_municipality.csv     # コンビニ件数（CSV）
@@ -25,7 +27,8 @@
 |  ├─ estat_fetch_json_census_2020.py        # (1) 国勢調査 JSON 取得
 |  ├─ estat_population_muni2020.py           # (2) 人口 CSV 生成
 |  ├─ scrape_apamanshop_convenience.py       # (3) コンビニ件数 CSV 生成
-|  └─ merge_muni_population_convenience.py   # (4) マージ＆欠損出力
+|  ├─ merge_muni_population_convenience.py   # (4) マージ＆欠損出力
+|  └─ linear-regression_analysis.py          # (5) 回帰分析
 ├─ .gitignore
 ├─ requirements.txt
 ├─ .env                                   # e‑Stat APP_ID を格納（後述）
@@ -94,6 +97,20 @@
    * 出力: `data/muni_pop_conv.csv`
 
      * 列: `area_code, area_name, population, conv_store`
+
+### 5. 人口からコンビニ店舗数を予測（回帰分析）
+
+```bash
+python program/linear-regression_analysis.py
+```
+
+* 読み込みファイル  
+  * `data/muni_pop_conv.csv`  
+* 出力ファイル  
+  * `data/log/linear-regression_analysis_log.txt` … 実行ログ（回帰式・決定係数など）  
+  * `data/pictures/regression_analysis_final.png` … 散布図＋回帰直線  
+
+> デフォルトでは人口ゼロの自治体と欠損値は除外します。
 
 ---
 
